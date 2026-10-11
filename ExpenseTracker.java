@@ -271,6 +271,7 @@ while (true) {
                 System.out.println("Personal: Rs." + personalTotal);
             }
              // Option 6: Delete Expense
+        
             else if (choice == 6) {
 
                 if (expenses.isEmpty()) {
@@ -288,28 +289,17 @@ while (true) {
                         );
                     }
 
-                   
-System.out.print("Enter expense number to delete: ");
+                    System.out.print("Enter expense number to delete: ");
 
-String deleteInput = sc.nextLine();
-int deleteChoice;
+                    String deleteInput = sc.nextLine();
+                    int deleteChoice;
 
-try {
-    deleteChoice = Integer.parseInt(deleteInput);
-} catch (NumberFormatException e) {
-    System.out.println("Invalid input! Please enter a number.");
-    deleteChoice = -1;
-    continue;
-}
-
-if (deleteChoice >= 1 && deleteChoice <= expenses.size()) {
-    expenses.remove(deleteChoice - 1);
-    saveExpenses(expenses);
-    System.out.println("Expense deleted successfully!");
-} else {
-    System.out.println("Invalid expense number.");
-}
-    
+                    try {
+                        deleteChoice = Integer.parseInt(deleteInput);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input! Please enter a number.");
+                        continue;
+                    }
 
                     if (deleteChoice >= 1 && deleteChoice <= expenses.size()) {
                         expenses.remove(deleteChoice - 1);
@@ -331,10 +321,8 @@ if (deleteChoice >= 1 && deleteChoice <= expenses.size()) {
                 System.out.println("Invalid choice. Please try again.");
             }
 
-
         } while (choice != 5);
 
         sc.close();
     }
 }
-
